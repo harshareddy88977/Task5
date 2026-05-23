@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task 4 - Portfolio Website</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #333;
+        }
+
+        /* HEADER */
+
+        header{
+            height: 100vh;
+            background: linear-gradient(135deg,#667eea,#764ba2);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero h1{
+            font-size: 55px;
+            margin-bottom: 10px;
+        }
+
+        .hero p{
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        .hero button{
+            padding: 12px 25px;
+            border: none;
+            background: white;
+            color: #667eea;
+            font-size: 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .hero button:hover{
+            transform: scale(1.05);
+        }
+
+        /* SECTION */
+
+        section{
+            padding: 60px 20px;
+        }
+
+        .container{
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        h2{
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 35px;
+            color: #333;
+        }
+
+        /* ABOUT */
+
+        .about{
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .about img{
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            border: 6px solid #667eea;
+            object-fit: cover;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        .about-text{
+            max-width: 500px;
+        }
+
+        .about-text p{
+            line-height: 1.8;
+            font-size: 18px;
+        }
+
+        /* SKILLS */
+
+        .skills{
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+            gap: 20px;
+        }
+
+        .skill{
+            background: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .skill:hover{
+            transform: translateY(-10px);
+        }
+
+        .skill h3{
+            margin-bottom: 10px;
+            color: #667eea;
+        }
+
+        /* TODO APP */
+
+        .todo-box{
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .todo-input{
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .todo-input input{
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        .todo-input button{
+            padding: 12px 20px;
+            border: none;
+            background: #667eea;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .todo-input button:hover{
+            background: #5a67d8;
+        }
+
+        ul{
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        li{
+            background: #f1f1f1;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        li button{
+            background: red;
+            border: none;
+            color: white;
+            padding: 6px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* PRODUCTS */
+
+        .filter-box{
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        select{
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .products{
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+            gap: 25px;
+        }
+
+        .product{
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .product:hover{
+            transform: scale(1.03);
+        }
+
+        .product img{
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .product-info{
+            padding: 20px;
+            text-align: center;
+        }
+
+        .product-info h3{
+            margin-bottom: 10px;
+        }
+
+        .product-info p{
+            margin-bottom: 10px;
+        }
+
+        /* FOOTER */
+
+        footer{
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width:768px){
+
+            .hero h1{
+                font-size: 40px;
+            }
+
+            .hero p{
+                font-size: 18px;
+            }
+
+            .about{
+                flex-direction: column;
+                text-align: center;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- HERO SECTION -->
+
+<header>
+
+    <div class="hero">
+
+        <h1>Harsha Reddy</h1>
+
+        <p>Frontend Web Developer</p>
+
+        <button onclick="showMessage()">Hire Me</button>
+
+    </div>
+
+</header>
+
+<!-- ABOUT -->
+
+<section>
+
+    <div class="container">
+
+        <h2>About Me</h2>
+
+        <div class="about">
+
+            <img src="hry.jpg" alt="profile">
+
+            <div class="about-text">
+
+                <p>
+                    Hello! I am learning web development using HTML, CSS, and JavaScript.
+                    I enjoy building responsive and interactive websites with beautiful UI designs.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SKILLS -->
+
+<section>
+
+    <div class="container">
+
+        <h2>My Skills</h2>
+
+        <div class="skills">
+
+            <div class="skill">
+                <h3>HTML</h3>
+                <p>Building webpage structure</p>
+            </div>
+
+            <div class="skill">
+                <h3>CSS</h3>
+                <p>Designing responsive layouts</p>
+            </div>
+
+            <div class="skill">
+                <h3>JavaScript</h3>
+                <p>Creating interactive websites</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- TODO APP -->
+
+<section>
+
+    <div class="container">
+
+        <h2>To-Do App</h2>
+
+        <div class="todo-box">
+
+            <div class="todo-input">
+
+                <input type="text" id="taskInput" placeholder="Enter your task">
+
+                <button onclick="addTask()">Add Task</button>
+
+            </div>
+
+            <ul id="taskList"></ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PRODUCTS -->
+
+<section>
+
+    <div class="container">
+
+        <h2>Product Section</h2>
+
+        <div class="filter-box">
+
+            <select id="filter" onchange="filterProducts()">
+
+                <option value="all">All Products</option>
+                <option value="phone">Phone</option>
+                <option value="laptop">Laptop</option>
+
+            </select>
+
+        </div>
+
+        <div class="products">
+
+            <div class="product" data-category="phone">
+
+                <img src="ip.png">
+
+                <div class="product-info">
+
+                    <h3>iPhone</h3>
+
+                    <p>Category: Phone</p>
+
+                </div>
+
+            </div>
+
+            <div class="product" data-category="laptop">
+
+                <img src="mac.png">
+
+                <div class="product-info">
+
+                    <h3>MacBook</h3>
+
+                    <p>Category: Laptop</p>
+
+                </div>
+
+            </div>
+
+            <div class="product" data-category="phone">
+
+                <img src="sam.png">
+
+                <div class="product-info">
+
+                    <h3>Samsung</h3>
+
+                    <p>Category: Phone</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>© 2026 Harsha Reddy | Portfolio Website</p>
+
+</footer>
+
+<script>
+
+    // HERO BUTTON
+
+    function showMessage(){
+
+        alert("Welcome to my portfolio website!");
+
+    }
+
+    // TODO APP WITH LOCAL STORAGE
+
+    let taskList = document.getElementById("taskList");
+
+    window.onload = function(){
+
+        loadTasks();
+
+    }
+
+    function addTask(){
+
+        let taskInput = document.getElementById("taskInput");
+
+        if(taskInput.value === ""){
+
+            alert("Please enter a task");
+
+            return;
+
+        }
+
+        let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+        tasks.push(taskInput.value);
+
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+
+        taskInput.value = "";
+
+        loadTasks();
+
+    }
+
+    function loadTasks(){
+
+        taskList.innerHTML = "";
+
+        let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+        tasks.forEach((task,index)=>{
+
+            let li = document.createElement("li");
+
+            li.innerHTML = `
+                ${task}
+                <button onclick="deleteTask(${index})">X</button>
+            `;
+
+            taskList.appendChild(li);
+
+        });
+
+    }
+
+    function deleteTask(index){
+
+        let tasks = JSON.parse(localStorage.getItem("tasks"));
+
+        tasks.splice(index,1);
+
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+
+        loadTasks();
+
+    }
+
+    // PRODUCT FILTER
+
+    function filterProducts(){
+
+        let filter = document.getElementById("filter").value;
+
+        let products = document.querySelectorAll(".product");
+
+        products.forEach(product=>{
+
+            if(filter === "all" || product.dataset.category === filter){
+
+                product.style.display = "block";
+
+            }
+
+            else{
+
+                product.style.display = "none";
+
+            }
+
+        });
+
+    }
+
+</script>
+
+</body>
+</html>
